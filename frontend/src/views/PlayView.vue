@@ -45,19 +45,26 @@ export default {
       }
     },
     choose(option) {
-      document.getElementById(this.heap[this.index]).style.backgroundColor = '#42b983';
-      if (option === this.heap[this.index]) {
+      if (this.clicked) {
+        return;
+      }
+      this.clicked = true;
+      document.getElementById(this.heap[this.index].split(' ')[0]).style.backgroundColor = '#42b983';
+      if (option === this.heap[this.index].split(' ')[0]) {
         this.$store.commit('updateStat', [this.type, 1, 1]);
       } else {
+        document.getElementById(option).style.backgroundColor = 'red';
         this.$store.commit('updateStat', [this.type, 1, 0]);
         let prev = JSON.parse(localStorage['hardWords'] || '[]');
         prev.push(this.heap[this.index]);
         localStorage['hardWords'] = JSON.stringify(prev);
       }
       setTimeout(() => {
-            document.getElementById(this.heap[this.index]).style.backgroundColor = 'white';
-            this.next();
-          }, 1000);
+        document.getElementById(option).style.backgroundColor = '';
+        document.getElementById(this.heap[this.index].split(' ')[0]).style.backgroundColor = '';
+        this.next();
+        this.clicked = false;
+      }, 1000);
     }
   },
   data() {
@@ -67,7 +74,8 @@ export default {
       type: "",
       word: "",
       options: [],
-      stat: "Нет данных"
+      stat: "Нет данных",
+      clicked: false,
     }
   },
   mounted() {
@@ -101,8 +109,10 @@ button {
   font-size: 15px;
   background-color: white;
   border: 1px solid #42b983;
+  color: black;
   border-radius: 5px;
   cursor: pointer;
+  transition-duration: .125s;
 }
 
 .buttons {
@@ -116,7 +126,8 @@ button {
 }
 
 .playground {
-  margin-top: 200px;
+  position: relative;
+  top: 70px;
   display: flex;
   flex-direction: column;
 }

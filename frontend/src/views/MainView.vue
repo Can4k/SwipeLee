@@ -2,6 +2,12 @@
     <div class="wrapper">
       <header>
         <h2>SwipeLee</h2>
+        <div @click="closeBar" v-show="showBar" id="showed">
+          Если ваше устройство <b>IPhone</b>, скройте панель инструментов.
+          Для этого нажмите на кнопку <b>aA</b>, которая находится левее ссылки.
+          Затем нажмите <b>скрыть панель инструментов</b>. Вы сможите снова открыть ее, нажав на ссылку внизу страницы.
+          <div><b>Для того, чтобы скрыть этот текст просто нажмите на него.</b></div>
+        </div>
         <section>
           <WideButton
               @click="replace(type)"
@@ -23,6 +29,11 @@ import WideButton from "@/UI/WideButton.vue";
 
 export default {
   name: "MainView",
+  data() {
+    return {
+      showBar: true,
+    }
+  },
   components: {WideButton},
   methods: {
     replace(type) {
@@ -32,6 +43,15 @@ export default {
       }
       let path = this.$store.state.enTypes[this.$store.state.types.indexOf(type)];
       location.replace('/play/' + path);
+    },
+    closeBar() {
+      localStorage.showBar = "false";
+      this.showBar = false;
+    }
+  },
+  mounted() {
+    if (localStorage.showBar === "false") {
+      this.showBar = false;
     }
   }
 }
@@ -50,7 +70,7 @@ export default {
 }
 h2 {
   text-align: center;
-  margin: 0 10px 30px;
+  margin: 0 10px;
   font-size: 30px;
 }
 section {
@@ -58,6 +78,7 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 footer {
@@ -69,5 +90,15 @@ footer {
 .types {
   margin-bottom: 10px;
   width: 100%;
+}
+#showed {
+  font-size: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #4ece93;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #4ece93;
+  text-align: center;
 }
 </style>
