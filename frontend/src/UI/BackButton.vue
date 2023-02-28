@@ -1,5 +1,5 @@
 <template>
-  <div class="BackButton">
+  <div @click="toMain()" class="BackButton">
     <div class="flexx">
       Назад
     </div>
@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  name: "BackButton"
+  name: "BackButton",
+  methods: {
+    toMain() {
+      location.replace('/');
+    }
+  }
 }
 </script>
 

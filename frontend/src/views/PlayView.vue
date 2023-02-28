@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper">
-    <BackButton @click="replace('/')"/>
+    <BackButton/>
+    <transition>
+      <div v-show="this.description && this.showDescription" class="description">
+        {{description}}
+      </div>
+    </transition>
     <div class="playground">
       <h3>
         {{ word }}
@@ -20,12 +25,13 @@ export default {
   name: "PlayView",
   components: {BackButton},
   methods: {
-    replace(text) {
-      location.replace(text);
-    },
-    next() {
+    next(type) {
       this.stat = this.$store.getters.percent(this.type);
-      this.index = Math.floor(Math.random() * this.heap.length);
+      if (type === 'accent') {
+        this.index = Math.floor(Math.random() * this.heap.length);
+      } else if (type === 'accenttest'){
+        this.index = this.$store.state.stat[type].amountAll;
+      }
       this.parse(this.type);
     },
     parse() {
@@ -33,7 +39,19 @@ export default {
       if (this.type === 'accent') {
         this.word = this.heap[this.index].toLowerCase();
         let justWord = this.word.split(' ')[0];
+        for (let i in justWord) {
+          if (this.$store.state.vowels.indexOf(this.word[+i]) !== -1) {
+            let pref = this.word.slice(0, +i);
+            let letter = this.word[i].toUpperCase();
+            let suf = this.word.slice(+i + 1, justWord.length);
+            this.options.push(pref + letter + suf);
+          }
+        }
+      }
 
+      if (this.type === 'accenttest') {
+        this.word = this.heap[this.index].toLowerCase();
+        let justWord = this.word.split(' ')[0];
         for (let i in justWord) {
           if (this.$store.state.vowels.indexOf(this.word[+i]) !== -1) {
             let pref = this.word.slice(0, +i);
@@ -49,6 +67,7 @@ export default {
         return;
       }
       this.clicked = true;
+
       document.getElementById(this.heap[this.index].split(' ')[0]).style.backgroundColor = '#42b983';
       if (option === this.heap[this.index].split(' ')[0]) {
         this.$store.commit('updateStat', [this.type, 1, 1]);
@@ -62,7 +81,7 @@ export default {
       setTimeout(() => {
         document.getElementById(option).style.backgroundColor = '';
         document.getElementById(this.heap[this.index].split(' ')[0]).style.backgroundColor = '';
-        this.next();
+        this.next(this.type);
         this.clicked = false;
       }, 1000);
     }
@@ -76,13 +95,20 @@ export default {
       options: [],
       stat: "Нет данных",
       clicked: false,
+      openTheory: false,
+      description: "",
+      showDescription: true,
     }
   },
   mounted() {
     this.type = location.pathname.split('/').slice(-1)[0];
     try {
-      this.heap = require(`@/assets/${this.type}.json`);
+      if (this.type === "accenttest" || this.type === "accent") {
+        this.heap = require(`@/assets/accent.json`);
+      }
+      this.description = this.$store.state.description[this.type];
       this.next(this.type);
+      setTimeout(() => this.showDescription = false, 5000);
     } catch (e) {
       console.log(`Отсутствуют данные по режиму ${this.type}`);
     }
@@ -101,6 +127,9 @@ h3 {
   left: 50%;
   transform: translate(-50%);
   max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 20px);
 }
 
 button {
@@ -126,10 +155,11 @@ button {
 }
 
 .playground {
+  margin-top: 70px;
   position: relative;
-  top: 70px;
   display: flex;
   flex-direction: column;
+  height: calc(100%);
 }
 
 .stat {
@@ -137,5 +167,16 @@ button {
   font-weight: 100;
   font-size: 12px;
   color: black;
+}
+.description {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #4ece93;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #4ece93;
+  text-align: center;
+  transition-duration: 1s !important;
 }
 </style>

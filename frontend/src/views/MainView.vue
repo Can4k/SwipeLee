@@ -1,27 +1,33 @@
 <template>
-    <div class="wrapper">
-      <header>
-        <h2>SwipeLee</h2>
-        <div @click="closeBar" v-show="showBar" id="showed">
-          Если ваше устройство <b>IPhone</b>, скройте панель инструментов.
-          Для этого нажмите на кнопку <b>aA</b>, которая находится левее ссылки.
-          Затем нажмите <b>скрыть панель инструментов</b>. Вы сможите снова открыть ее, нажав на ссылку внизу страницы.
-          <div><b>Для того, чтобы скрыть этот текст просто нажмите на него.</b></div>
-        </div>
-        <section>
-          <WideButton
-              @click="replace(type)"
-              v-for="type in $store.state.types"
-              class="types">{{ type }}
-          </WideButton>
-        </section>
-      </header>
-      <footer>
-        <WideButton @click="replace('stat')">
+  <div class="wrapper">
+    <header>
+      <h2>SwipeLee</h2>
+      <div class="header-2">
+        <WideButton class="stat" @click="replace('stat')">
           Статистика
         </WideButton>
-      </footer>
-    </div>
+        <WideButton class="stat" @click="replace('about')">
+          О сайте
+        </WideButton>
+      </div>
+      <div @click="closeBar" v-show="false" id="showed">
+        Если ваше устройство <b>IPhone</b>, скройте панель инструментов.
+        Для этого нажмите на кнопку <b>aA</b>, которая находится левее ссылки.
+        Затем нажмите <b>скрыть панель инструментов</b>. Вы сможите снова открыть ее, нажав на ссылку внизу страницы.
+        <div><b>Для того, чтобы скрыть этот текст просто нажмите на него.</b></div>
+      </div>
+      <section>
+        <WideButton
+            @click="replace(type)"
+            v-for="type in $store.state.types"
+            class="types"
+            :tags="this.$store.state.tags[this.$store.getters.translateType(type)]"
+            :style="this.$store.state.style[this.$store.getters.translateType(type)]"
+        >{{ innerData(type) }}
+        </WideButton>
+      </section>
+    </header>
+  </div>
 </template>
 
 <script>
@@ -41,12 +47,26 @@ export default {
         location.replace('/stat');
         return;
       }
+      if (type === 'about') {
+        location.replace('/about');
+        return;
+      }
       let path = this.$store.state.enTypes[this.$store.state.types.indexOf(type)];
       location.replace('/play/' + path);
     },
     closeBar() {
       localStorage.showBar = "false";
       this.showBar = false;
+    },
+    innerData(type) {
+      return type;
+      // пока обойдемся просто подписию
+      if (type === 'Ударение') {
+        return type;
+      }
+      if (type === 'Ударение (тест)') {
+        return type + ' ' + this.$store.state.stat[this.$store.getters.translateType(type)].amountOk + '/' + this.$store.state.stat[this.$store.getters.translateType(type)].amountAll;
+      }
     }
   },
   mounted() {
@@ -68,11 +88,13 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
 }
+
 h2 {
   text-align: center;
   margin: 0 10px;
   font-size: 30px;
 }
+
 section {
   display: flex;
   align-items: center;
@@ -81,16 +103,11 @@ section {
   margin-top: 20px;
 }
 
-footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-}
-
 .types {
   margin-bottom: 10px;
   width: 100%;
 }
+
 #showed {
   font-size: 10px;
   margin-top: 10px;
@@ -101,4 +118,24 @@ footer {
   background-color: #4ece93;
   text-align: center;
 }
+
+.stat {
+  margin-top: 10px;
+  width: 20px;
+}
+
+.header-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: #4ece93;
+}
+
 </style>

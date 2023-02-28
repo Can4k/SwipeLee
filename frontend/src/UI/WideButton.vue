@@ -1,14 +1,23 @@
 <template>
-  <div class="WideButton">
+  <div :style="style" class="WideButton">
     <div class="wrapper">
       <slot></slot>
+      <div v-if="tags && tags.length" class="tag-wrapper">
+        <div class="tag" v-for="tag in tags">
+          {{tag}}
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "WideButton"
+  name: "WideButton",
+  props: {
+    tags: Array,
+    style: Object
+  },
 }
 </script>
 
@@ -32,5 +41,20 @@ export default {
 }
 .wrapper {
   word-break: break-all;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tag {
+  font-size: 10px;
+  background-color: #42b983;
+  border-radius: 6px;
+  padding: 3px;
+  margin: 3px;
+}
+.tag-wrapper {
+  display: flex;
+  margin-left: 3px;
 }
 </style>

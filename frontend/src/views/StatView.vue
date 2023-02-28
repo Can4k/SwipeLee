@@ -1,13 +1,16 @@
 <template>
   <div class="wrapper">
-    <BackButton @click="replace('/')"/>
+    <BackButton/>
     <h1>Статистика
-      <button @click="clearStat">Отчистить статистику</button>
+      <button @click="clearStat()">Отчистить статистику</button>
     </h1>
     <div v-for="type in this.$store.state.enTypes" class="stat-block">
       <h2>{{ title(type) }}</h2>
       {{ fraction(type) }} =
       <b>{{ percent(type) }}</b>
+      <div>
+        <button class="tag" @click="clearStat(type)">Отчистить статистику</button>
+      </div>
     </div>
     <h1>Проблемные слова</h1>
     <div class="problems-container">
@@ -37,19 +40,21 @@ export default {
     }
   },
   methods: {
-    replace(text) {
-      location.replace(text);
-    },
-    clearStat() {
-      this.$store.commit('clearStat');
-      localStorage.clear();
-      this.hardWords = [];
+    clearStat(type = null) {
+      if (!type) {
+        this.$store.commit('clearStat');
+        localStorage.clear();
+        this.hardWords = [];
+      } else {
+        this.$store.commit('clearTypeStat', type);
+        localStorage.stat = JSON.stringify(this.$store.state.stat);
+      }
     },
     percent(type) {
       return this.$store.getters.percent(type);
     },
     fraction(type) {
-      return this.$store.state.stats[type].amountOk + '/' + this.$store.state.stats[type].amountAll;
+      return this.$store.state.stat[type].amountOk + '/' + this.$store.state.stat[type].amountAll;
     },
     title(type) {
       return this.$store.state.types[this.$store.state.enTypes.indexOf(type)];
@@ -114,10 +119,17 @@ button {
   padding: 5px;
   margin: 10px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .problems-container::-webkit-scrollbar {
   width: 0
+}
+
+.tag {
+  margin-top: 5px;
+  font-size: 10px;
 }
 
 </style>
