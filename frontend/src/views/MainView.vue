@@ -18,12 +18,12 @@
       </div>
       <section>
         <WideButton
-            @click="replace(type)"
-            v-for="type in $store.state.types"
+            @click="replace(type.enName)"
+            v-for="type in $store.state.modes"
             class="types"
-            :tags="this.$store.state.tags[this.$store.getters.translateType(type)]"
-            :style="this.$store.state.style[this.$store.getters.translateType(type)]"
-        >{{ innerData(type) }}
+            :tags="type.tags"
+            :style="type.style"
+        >{{ type.name }}
         </WideButton>
       </section>
     </header>
@@ -51,8 +51,7 @@ export default {
         location.replace('/about');
         return;
       }
-      let path = this.$store.state.enTypes[this.$store.state.types.indexOf(type)];
-      location.replace('/play/' + path);
+      location.replace('/play/' + type);
     },
     closeBar() {
       localStorage.showBar = "false";

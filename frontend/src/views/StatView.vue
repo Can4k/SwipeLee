@@ -4,12 +4,12 @@
     <h1>Статистика
       <button @click="clearStat()">Отчистить статистику</button>
     </h1>
-    <div v-for="type in this.$store.state.enTypes" class="stat-block">
-      <h2>{{ title(type) }}</h2>
-      {{ fraction(type) }} =
-      <b>{{ percent(type) }}</b>
+    <div v-for="type in this.$store.state.modes" class="stat-block">
+      <h2>{{ type.name }}</h2>
+      {{ fraction(type.enName) }} =
+      <b>{{ percent(type.enName) }}</b>
       <div>
-        <button class="tag" @click="clearStat(type)">Отчистить статистику</button>
+        <button class="tag" @click="clearStat(type.enName)">Отчистить статистику</button>
       </div>
     </div>
     <h1>Проблемные слова</h1>
@@ -56,9 +56,6 @@ export default {
     fraction(type) {
       return this.$store.state.stat[type].amountOk + '/' + this.$store.state.stat[type].amountAll;
     },
-    title(type) {
-      return this.$store.state.types[this.$store.state.enTypes.indexOf(type)];
-    }
   },
 }
 </script>

@@ -2,16 +2,16 @@
   <div class="wrapper">
     <BackButton/>
     <transition>
-      <div v-show="this.description && this.showDescription" class="description">
-        {{description}}
+      <div v-show="this.example.description && this.showDescription" class="description">
+        {{ this.example.description }}
       </div>
     </transition>
     <div class="playground">
       <h3>
-        {{ word }}
+        {{ this.example.word }}
       </h3>
       <div class="buttons">
-        <button :id="option" @click="choose(option)" v-for="option in this.options">{{ option }}</button>
+        <button :id="option" @click="choose(option)" v-for="option in this.example.options">{{ option }}</button>
       </div>
       <b class="stat">{{ stat }}</b>
     </div>
@@ -25,42 +25,20 @@ export default {
   name: "PlayView",
   components: {BackButton},
   methods: {
-    next(type) {
-      this.stat = this.$store.getters.percent(this.type);
-      if (type === 'accent') {
+    next() {
+      this.example = this.$store.state.modes.find(element => {
+        return element.enName === this.name;
+      });
+      this.stat = this.$store.getters.percent(this.name);
+      if (this.example.nextMode === 'random') {
         this.index = Math.floor(Math.random() * this.heap.length);
-      } else if (type === 'accenttest'){
-        this.index = this.$store.state.stat[type].amountAll;
+      } else if (this.example.nextMode === "order") {
+        this.index = this.$store.state.stat[this.name].amountAll;
       }
       this.parse(this.type);
     },
     parse() {
-      this.options = [];
-      if (this.type === 'accent') {
-        this.word = this.heap[this.index].toLowerCase();
-        let justWord = this.word.split(' ')[0];
-        for (let i in justWord) {
-          if (this.$store.state.vowels.indexOf(this.word[+i]) !== -1) {
-            let pref = this.word.slice(0, +i);
-            let letter = this.word[i].toUpperCase();
-            let suf = this.word.slice(+i + 1, justWord.length);
-            this.options.push(pref + letter + suf);
-          }
-        }
-      }
-
-      if (this.type === 'accenttest') {
-        this.word = this.heap[this.index].toLowerCase();
-        let justWord = this.word.split(' ')[0];
-        for (let i in justWord) {
-          if (this.$store.state.vowels.indexOf(this.word[+i]) !== -1) {
-            let pref = this.word.slice(0, +i);
-            let letter = this.word[i].toUpperCase();
-            let suf = this.word.slice(+i + 1, justWord.length);
-            this.options.push(pref + letter + suf);
-          }
-        }
-      }
+      this.example = this.heap[this.index];
     },
     choose(option) {
       if (this.clicked) {
@@ -68,49 +46,49 @@ export default {
       }
       this.clicked = true;
 
-      document.getElementById(this.heap[this.index].split(' ')[0]).style.backgroundColor = '#42b983';
-      if (option === this.heap[this.index].split(' ')[0]) {
-        this.$store.commit('updateStat', [this.type, 1, 1]);
+      let correct_option = document.getElementById(this.example.correctVariant);
+      let chose_option = document.getElementById(option);
+
+      correct_option.style.backgroundColor = '#42b983';
+      if (option === this.example.correctVariant) {
+        this.$store.commit('updateStat', [this.name, 1, 1]);
       } else {
-        document.getElementById(option).style.backgroundColor = 'red';
-        this.$store.commit('updateStat', [this.type, 1, 0]);
+        chose_option.style.backgroundColor = 'red';
+        this.$store.commit('updateStat', [this.name, 1, 0]);
         let prev = JSON.parse(localStorage['hardWords'] || '[]');
-        prev.push(this.heap[this.index]);
+        prev.push(this.example.correctVariant);
         localStorage['hardWords'] = JSON.stringify(prev);
       }
       setTimeout(() => {
-        document.getElementById(option).style.backgroundColor = '';
-        document.getElementById(this.heap[this.index].split(' ')[0]).style.backgroundColor = '';
-        this.next(this.type);
+        chose_option.style.backgroundColor = '';
+        correct_option.style.backgroundColor = '';
+        this.next();
         this.clicked = false;
       }, 1000);
     }
   },
   data() {
     return {
-      heap: {},
       index: -1,
-      type: "",
-      word: "",
-      options: [],
+      name: "",
       stat: "Нет данных",
       clicked: false,
       openTheory: false,
-      description: "",
       showDescription: true,
+      example: {},
+      heap: []
     }
   },
   mounted() {
-    this.type = location.pathname.split('/').slice(-1)[0];
+    this.name = location.pathname.split('/').slice(-1)[0];
+    this.example = this.$store.state.modes.find(element => {
+      return element.enName === this.name;
+    });
     try {
-      if (this.type === "accenttest" || this.type === "accent") {
-        this.heap = require(`@/assets/accent.json`);
-      }
-      this.description = this.$store.state.description[this.type];
-      this.next(this.type);
-      setTimeout(() => this.showDescription = false, 5000);
+      this.heap = require(`@/assets/${this.example.filename}`);
+      this.next();
     } catch (e) {
-      console.log(`Отсутствуют данные по режиму ${this.type}`);
+      console.log(e)
     }
   },
 }
@@ -168,6 +146,7 @@ button {
   font-size: 12px;
   color: black;
 }
+
 .description {
   font-size: 12px;
   margin-top: 10px;

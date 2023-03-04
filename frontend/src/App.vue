@@ -14,8 +14,8 @@ export default {
       if (localStorage['stat']) {
         try {
           const stat = JSON.parse(localStorage['stat']);
-          for (let type of this.$store.state.enTypes) {
-            this.$store.commit('updateStat', [type, stat[type].amountAll, stat[type].amountOk]);
+          for (let mode of this.$store.state.modes) {
+            this.$store.commit('updateStat', [mode.enName, stat[mode.enName].amountAll, stat[mode.enName].amountOk]);
           }
         } catch (e) {
           localStorage.clear();
