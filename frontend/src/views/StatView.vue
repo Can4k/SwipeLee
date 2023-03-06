@@ -52,7 +52,7 @@ export default {
     clearStat(type = null) {
       if (!type) {
         this.$store.commit('clearStat');
-        localStorage.clear();
+        localStorage.stat = [];
         this.hardWords = [];
       } else {
         this.$store.commit('clearTypeStat', type);
