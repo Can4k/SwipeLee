@@ -17,11 +17,13 @@ export default createStore({
                 enName: "accenttest",
                 nextMode: "order",
                 tags: ['ЕГЭ 2023', 'Тест'],
-                style: {'border': '1px solid blue'},
+                style: {},
                 description: "В этом режиме все слова идут в том порядке, в котором они даны в исходном файле",
                 filename: "accent2.json",
             }
         ],
+
+        theme: "",
 
         vowels: 'аяуюоеёэиы',
         stat: {
@@ -38,7 +40,7 @@ export default createStore({
     getters: {
         percent: (state) => (title) => {
             if (state.stat[title].amountAll) {
-                return Math.round(state.stat[title].amountOk / state.stat[title].amountAll * 100) + '%';
+                return "Ваша точность: " + Math.round(state.stat[title].amountOk / state.stat[title].amountAll * 100) + '%';
             } else {
                 return "Нет данных";
             }
@@ -72,6 +74,19 @@ export default createStore({
         clearTypeStat(state, type) {
             state.stat[type].amountAll = 0;
             state.stat[type].amountOk = 0;
+        },
+        changeTheme(state, theme) {
+            if (!theme) {
+                if (state.theme === 'white') {
+                    state.theme = 'black';
+                } else {
+                    state.theme = 'white';
+                }
+            } else {
+                state.theme = theme;
+            }
+            document.querySelector('html').style.backgroundColor = (state.theme === 'black' ? "#003b3b" : "white");
+            localStorage['theme'] = state.theme;
         }
     },
     actions: {},

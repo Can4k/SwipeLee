@@ -1,5 +1,5 @@
 <template>
-  <div @click="toMain()" class="BackButton">
+  <div :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'" @click="toMain()" class="BackButton">
     <div class="flexx">
       Назад
     </div>
@@ -27,6 +27,7 @@ export default {
   border-radius: 8px;
   width: 80px;
   cursor: pointer;
+  user-select: none;
 }
 
 .flexx {

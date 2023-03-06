@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <header>
-      <h2>SwipeLee</h2>
+      <h2 :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'">SwipeLee</h2>
       <div class="header-2">
         <WideButton class="stat" @click="replace('stat')">
           Статистика
@@ -60,12 +60,6 @@ export default {
     innerData(type) {
       return type;
       // пока обойдемся просто подписию
-      if (type === 'Ударение') {
-        return type;
-      }
-      if (type === 'Ударение (тест)') {
-        return type + ' ' + this.$store.state.stat[this.$store.getters.translateType(type)].amountOk + '/' + this.$store.state.stat[this.$store.getters.translateType(type)].amountAll;
-      }
     }
   },
   mounted() {
@@ -100,6 +94,7 @@ section {
   justify-content: center;
   flex-direction: column;
   margin-top: 20px;
+  user-select: none;
 }
 
 .types {
@@ -111,16 +106,17 @@ section {
   font-size: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
-  border: 1px solid #4ece93;
+  border: 1px solid #42b983;
   padding: 5px;
   border-radius: 10px;
-  background-color: #4ece93;
+  background-color: #42b983;
   text-align: center;
 }
 
 .stat {
   margin-top: 10px;
-  width: 20px;
+  min-width: 100px;
+  user-select: none;
 }
 
 .header-2 {

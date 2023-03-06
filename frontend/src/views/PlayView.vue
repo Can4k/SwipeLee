@@ -1,5 +1,7 @@
 <template>
-  <div class="wrapper">
+  <div
+      :style="this.$store.state.theme === 'black'? {color: 'white'} : {color: 'black'}"
+      class="wrapper">
     <BackButton/>
     <transition>
       <div v-show="this.example.description && this.showDescription" class="description">
@@ -11,9 +13,12 @@
         {{ this.example.word }}
       </h3>
       <div class="buttons">
-        <button :id="option" @click="choose(option)" v-for="option in this.example.options">{{ option }}</button>
+        <button
+            :style="this.$store.state.theme === 'black'? {color: 'white', backgroundColor: '#003b3b'} : {color: 'black', backgroundColor: 'white'}"
+            :id="option" @click="choose(option)" v-for="option in this.example.options">{{ option }}
+        </button>
       </div>
-      <b class="stat">{{ stat }}</b>
+      <b :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'" class="stat">{{ stat }}</b>
     </div>
   </div>
 </template>
@@ -49,11 +54,11 @@ export default {
       let correct_option = document.getElementById(this.example.correctVariant);
       let chose_option = document.getElementById(option);
 
-      correct_option.style.backgroundColor = '#42b983';
+      correct_option.style.backgroundColor = this.$store.state.theme === 'white'? '#42b983' : '#256C4CFF';
       if (option === this.example.correctVariant) {
         this.$store.commit('updateStat', [this.name, 1, 1]);
       } else {
-        chose_option.style.backgroundColor = 'red';
+        chose_option.style.backgroundColor = this.$store.state.theme === 'white?' ? 'red' : 'darkred';
         this.$store.commit('updateStat', [this.name, 1, 0]);
         let prev = JSON.parse(localStorage['hardWords'] || '[]');
         prev.push(this.example.correctVariant);
@@ -98,6 +103,7 @@ export default {
 h3 {
   font-size: 25px;
   text-align: center;
+  user-select: none;
 }
 
 .wrapper {
@@ -111,6 +117,7 @@ h3 {
 }
 
 button {
+  user-select: none;
   margin: 5px;
   padding: 4px;
   font-size: 15px;
@@ -128,7 +135,7 @@ button {
   justify-content: center;
   outline: none;
   width: 100%;
-  padding: 4px;
+  padding: 10px;
   flex-wrap: wrap;
 }
 
@@ -145,16 +152,17 @@ button {
   font-weight: 100;
   font-size: 12px;
   color: black;
+  user-select: none;
 }
 
 .description {
   font-size: 12px;
   margin-top: 10px;
   margin-bottom: 20px;
-  border: 1px solid #4ece93;
+  border: 1px solid #42b983;
   padding: 5px;
   border-radius: 10px;
-  background-color: #4ece93;
+  background-color: #42b983;
   text-align: center;
   transition-duration: 1s !important;
 }

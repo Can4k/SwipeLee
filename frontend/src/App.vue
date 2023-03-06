@@ -1,10 +1,14 @@
 <template>
+  <ChangeThemeButton/>
   <router-view>
   </router-view>
 </template>
 
 <script>
+import ChangeThemeButton from "@/UI/ChangeThemeButton.vue";
+
 export default {
+  components: {ChangeThemeButton},
   methods: {
     async getTypeList() { // получаем список type
       // пока оставляем пустым
@@ -26,6 +30,10 @@ export default {
   mounted() {
     this.getTypeList();
     this.getStat();
+    if (!localStorage.theme) {
+      localStorage.theme = 'white';
+    }
+    this.$store.commit('changeTheme', localStorage.theme);
   }
 }
 </script>
@@ -39,5 +47,8 @@ export default {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+*::-webkit-scrollbar {
+  width: 0;
 }
 </style>
