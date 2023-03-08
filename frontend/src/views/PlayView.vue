@@ -181,7 +181,7 @@ button {
 
 @media screen and (min-width: 750px){
   .wrapper {
-    width: 600px;
+    max-width: 600px;
   }
   h3 {
     font-size: 35px;
