@@ -1,6 +1,6 @@
 <template>
+  <BackButton/>
   <div :style="this.$store.state.theme === 'black'? {color: 'white'} : {color: 'black'}" class="wrapper">
-    <BackButton/>
     <div class="description">
       <div class="paragraph">
         <h1>О сайте</h1>

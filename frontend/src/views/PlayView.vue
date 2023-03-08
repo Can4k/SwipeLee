@@ -1,13 +1,14 @@
 <template>
+  <BackButton/>
   <div
       :style="this.$store.state.theme === 'black'? {color: 'white'} : {color: 'black'}"
       class="wrapper">
-    <BackButton/>
     <transition>
       <div v-show="this.example.description && this.showDescription" class="description">
         {{ this.example.description }}
       </div>
     </transition>
+    <FinishPanel v-if="showFinishPanel" :en-name="this.name"/>
     <div class="playground">
       <h3>
         {{ this.example.word }}
@@ -18,17 +19,19 @@
             :id="option" @click="choose(option)" v-for="option in this.example.options">{{ option }}
         </button>
       </div>
-      <b :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'" class="stat">{{ stat }}</b>
+      <b v-show="!showFinishPanel" :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'"
+         class="stat">{{ stat }}</b>
     </div>
   </div>
 </template>
 
 <script>
 import BackButton from "@/UI/BackButton.vue";
+import FinishPanel from "@/UI/FinishPanel.vue";
 
 export default {
   name: "PlayView",
-  components: {BackButton},
+  components: {FinishPanel, BackButton},
   methods: {
     next() {
       this.example = this.$store.state.modes.find(element => {
@@ -43,7 +46,15 @@ export default {
       this.parse(this.type);
     },
     parse() {
-      this.example = this.heap[this.index];
+      if (this.index >= this.heap.length) {
+        if (this.example.nextMode === "order") {
+          this.showFinishPanel = true;
+        } else {
+          location.reload();
+        }
+      } else {
+        this.example = this.heap[this.index];
+      }
     },
     choose(option) {
       if (this.clicked) {
@@ -54,11 +65,11 @@ export default {
       let correct_option = document.getElementById(this.example.correctVariant);
       let chose_option = document.getElementById(option);
 
-      correct_option.style.backgroundColor = this.$store.state.theme === 'white'? '#42b983' : '#256C4CFF';
+      correct_option.style.backgroundColor = (this.$store.state.theme === 'white' ? '#42b983' : '#256C4CFF');
       if (option === this.example.correctVariant) {
         this.$store.commit('updateStat', [this.name, 1, 1]);
       } else {
-        chose_option.style.backgroundColor = this.$store.state.theme === 'white?' ? 'red' : 'darkred';
+        chose_option.style.backgroundColor = (this.$store.state.theme === 'white' ? 'red' : 'darkred');
         this.$store.commit('updateStat', [this.name, 1, 0]);
         let prev = JSON.parse(localStorage['hardWords'] || '[]');
         prev.push(this.example.correctVariant);
@@ -79,9 +90,10 @@ export default {
       stat: "Нет данных",
       clicked: false,
       openTheory: false,
-      showDescription: true,
+      showDescription: false,
       example: {},
-      heap: []
+      heap: [],
+      showFinishPanel: false
     }
   },
   mounted() {
@@ -165,5 +177,21 @@ button {
   background-color: #42b983;
   text-align: center;
   transition-duration: 1s !important;
+}
+
+@media screen and (min-width: 750px){
+  .wrapper {
+    width: 600px;
+  }
+  h3 {
+    font-size: 35px;
+  }
+  .buttons button {
+    font-size: 22px;
+    padding: 5px;
+  }
+  .stat {
+    font-size: 15px;
+  }
 }
 </style>

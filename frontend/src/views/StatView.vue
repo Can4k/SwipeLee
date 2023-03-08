@@ -1,6 +1,6 @@
 <template>
+  <BackButton/>
   <div :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'" class="wrapper">
-    <BackButton/>
     <h1>Статистика
       <button :style="this.$store.state.theme === 'black'? 'border: 1px solid #42b983; color: white; background-color: #003b3b' : 'color: black'"
               @click="clearStat()">Отчистить статистику
@@ -53,6 +53,7 @@ export default {
       if (!type) {
         this.$store.commit('clearStat');
         localStorage.stat = [];
+        localStorage.hardWords = [];
         this.hardWords = [];
       } else {
         this.$store.commit('clearTypeStat', type);
@@ -142,5 +143,28 @@ button {
   left: 50%;
   transform: translate(-50%);
 }
-
+@media screen and (min-width: 750px){
+  h1 {
+    font-size: 50px;
+  }
+  .wrapper {
+    max-width: 600px;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  button {
+    font-size: 25px;
+  }
+  .tag {
+    font-size: 20px;
+  }
+  .stat-block {
+    font-size: 18px;
+  }
+  .problems-container {
+    font-size: 22px;
+    height: 400px;
+  }
+}
 </style>

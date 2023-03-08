@@ -51,4 +51,10 @@ export default {
 *::-webkit-scrollbar {
   width: 0;
 }
+.wrapper {
+  top: 40px;
+}
+html {
+  transition-duration: .1s;
+}
 </style>

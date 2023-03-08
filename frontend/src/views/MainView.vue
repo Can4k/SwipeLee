@@ -76,7 +76,6 @@ export default {
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  height: calc(100vh - 20px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -86,6 +85,7 @@ h2 {
   text-align: center;
   margin: 0 10px;
   font-size: 30px;
+  margin-bottom: 5px;
 }
 
 section {
@@ -115,8 +115,8 @@ section {
 
 .stat {
   margin-top: 10px;
-  min-width: 100px;
   user-select: none;
+  min-width: 120px;
 }
 
 .header-2 {
@@ -132,5 +132,23 @@ h3 {
   font-weight: 500;
   color: #4ece93;
 }
-
+@media screen and (min-width: 750px){
+  h2 {
+    font-size: 50px;
+  }
+  .wrapper {
+    max-width: 600px;
+  }
+  .stat {
+    font-size: 25px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+  }
+  .types {
+    font-size: 30px;
+    height: auto;
+    padding: 10px;
+  }
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div :style="style" class="WideButton">
-    <div :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'" class="wrapper">
+    <div :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'" class="wrapper2">
       <slot></slot>
-      <div v-if="tags && tags.length" class="tag-wrapper">
+      <div v-if="tags && tags.length" class="tag-wrapper2">
         <div class="tag" v-for="tag in tags">
           {{tag}}
         </div>
@@ -38,7 +38,7 @@ export default {
 .WideButton:hover {
   background-color: #42b983;
 }
-.wrapper {
+.wrapper2 {
   word-break: break-all;
   width: 100%;
   display: flex;
@@ -52,7 +52,7 @@ export default {
   padding: 3px;
   margin: 3px;
 }
-.tag-wrapper {
+.tag-wrapper2 {
   display: flex;
   margin-left: 3px;
 }
