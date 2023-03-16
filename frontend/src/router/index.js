@@ -24,7 +24,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: aboutView
-  }
+  },
+  {
+    path: "/:catchAll(.*)",
+    redirect: '/',
+  },
 ]
 
 const router = createRouter({

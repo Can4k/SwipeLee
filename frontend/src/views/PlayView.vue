@@ -45,6 +45,12 @@ export default {
       }
       this.parse(this.type);
     },
+    shuffle(arr) {
+      for (let i = arr.length - 1; i >= 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    },
     parse() {
       if (this.index >= this.heap.length) {
         if (this.example.nextMode === "order") {
@@ -54,6 +60,7 @@ export default {
         }
       } else {
         this.example = this.heap[this.index];
+        this.shuffle(this.example.options);
       }
     },
     choose(option) {
@@ -61,10 +68,8 @@ export default {
         return;
       }
       this.clicked = true;
-
       let correct_option = document.getElementById(this.example.correctVariant);
       let chose_option = document.getElementById(option);
-
       correct_option.style.backgroundColor = (this.$store.state.theme === 'white' ? '#42b983' : '#256C4CFF');
       if (option === this.example.correctVariant) {
         this.$store.commit('updateStat', [this.name, 1, 1]);
@@ -101,6 +106,11 @@ export default {
     this.example = this.$store.state.modes.find(element => {
       return element.enName === this.name;
     });
+
+    if (!this.example) {
+      location.replace('/play');
+    }
+
     try {
       this.heap = require(`@/assets/${this.example.filename}`);
       this.next();
