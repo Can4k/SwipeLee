@@ -10,16 +10,45 @@ export default createStore({
                 tags: ['ЕГЭ 2023'],
                 style: {},
                 description: "",
-                filename: "accent2.json",
+                filename: "accent.json",
+                type: "test"
             },
             {
-                name: "Ударение-2",
-                enName: "accenttest",
+                name: "Ударение (2)",
+                enName: "accent-test",
                 nextMode: "order",
                 tags: ['ЕГЭ 2023', 'Тест'],
                 style: {},
                 description: "В этом режиме все слова идут в том порядке, в котором они даны в исходном файле",
-                filename: "accent2.json",
+                filename: "accent.json",
+                type: "test"
+            },
+            {
+                name: "Инфинитивы на -ять-",
+                enName: "infinitive-yat",
+                nextMode: "random",
+                tags: ['ЕГЭ 2023', 'Заучивалка'],
+                style: {},
+                filename: "infinitive-yat.json",
+                type: "learn"
+            },
+            {
+                name: "Пре/При",
+                enName: "pre-pri",
+                nextMode: "random",
+                tags: ['ЕГЭ 2023', 'Исключения', 'Сложные случаи'],
+                style: {},
+                filename: "pre-pri.json",
+                type: "test"
+            },
+            {
+                name: "Пре/При (2)",
+                enName: "pre-pri-test",
+                nextMode: "order",
+                tags: ['ЕГЭ 2023', 'Тест', 'Исключения', 'Сложные случаи'],
+                style: {},
+                filename: "pre-pri.json",
+                type: "test"
             }
         ],
 
@@ -31,10 +60,22 @@ export default createStore({
                 amountAll: 0,
                 amountOk: 0
             },
-            "accenttest": {
+            "accent-test": {
                 amountAll: 0,
                 amountOk: 0,
             },
+            "infinitive-yat": {
+                amountAll: 0,
+                amountOk: 0
+            },
+            "pre-pri": {
+                amountAll: 0,
+                amountOk: 0
+            },
+            "pre-pri-test": {
+                amountAll: 0,
+                amountOk: 0,
+            }
         },
     },
     getters: {

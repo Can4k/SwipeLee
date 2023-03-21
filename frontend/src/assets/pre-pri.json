@@ -1,0 +1,947 @@
+[
+  {
+    "word": "пр?личия",
+    "correctVariant": "прИличия",
+    "options": [
+      "прЕличия",
+      "прИличия"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?терпеться (привыкнуть)",
+    "correctVariant": "прИтерпеться",
+    "options": [
+      "прЕтерпеться",
+      "прИтерпеться"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?увеличить",
+    "correctVariant": "прЕувеличить",
+    "options": [
+      "прЕувеличить",
+      "прИувеличить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?дать (форму)",
+    "correctVariant": "прИдать",
+    "options": [
+      "прЕдать",
+      "прИдать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?митив",
+    "correctVariant": "прИмитив",
+    "options": [
+      "прЕмитив",
+      "прИмитив"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?сниться",
+    "correctVariant": "прИсниться",
+    "options": [
+      "прЕсниться",
+      "прИсниться"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?клонить (наклонить)",
+    "correctVariant": "прИклонить",
+    "options": [
+      "прЕклонить",
+      "прИклонить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?тендент",
+    "correctVariant": "прЕтендент",
+    "options": [
+      "прЕтендент",
+      "прИтендент"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?волье",
+    "correctVariant": "прИволье",
+    "options": [
+      "прЕволье",
+      "прИволье"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?нцип",
+    "correctVariant": "прИнцип",
+    "options": [
+      "прЕнцип",
+      "прИнцип"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?людия",
+    "correctVariant": "прЕлюдия",
+    "options": [
+      "прЕлюдия",
+      "прИлюдия"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?словутый",
+    "correctVariant": "прЕсловутый",
+    "options": [
+      "прЕсловутый",
+      "прИсловутый"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?подобный",
+    "correctVariant": "прЕподобный",
+    "options": [
+      "прЕподобный",
+      "прИподобный"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?способить",
+    "correctVariant": "прИспособить",
+    "options": [
+      "прЕспособить",
+      "прИспособить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ятный",
+    "correctVariant": "прИятный",
+    "options": [
+      "прЕятный",
+      "прИятный"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?смотреть",
+    "correctVariant": "прИсмотреть",
+    "options": [
+      "прЕсмотреть",
+      "прИсмотреть"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?валировать",
+    "correctVariant": "прЕвалировать",
+    "options": [
+      "прЕвалировать",
+      "прИвалировать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?имущество",
+    "correctVariant": "прЕимущество",
+    "options": [
+      "прЕимущество",
+      "прИимущество"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?тязание",
+    "correctVariant": "прИтязание",
+    "options": [
+      "прЕтязание",
+      "прИтязание"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?баутка",
+    "correctVariant": "прИбаутка",
+    "options": [
+      "прЕбаутка",
+      "прИбаутка"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?сяга",
+    "correctVariant": "прИсяга",
+    "options": [
+      "прЕсяга",
+      "прИсяга"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?терпеть (пережить)",
+    "correctVariant": "прЕтерпеть",
+    "options": [
+      "прЕтерпеть",
+      "прИтерпеть"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?следовать",
+    "correctVariant": "прЕследовать",
+    "options": [
+      "прЕследовать",
+      "прИследовать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?подаватель",
+    "correctVariant": "прЕподаватель",
+    "options": [
+      "прЕподаватель",
+      "прИподаватель"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?небрегать",
+    "correctVariant": "прЕнебрегать",
+    "options": [
+      "прЕнебрегать",
+      "прИнебрегать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?теснять",
+    "correctVariant": "прИтеснять",
+    "options": [
+      "прЕтеснять",
+      "прИтеснять"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?льстить",
+    "correctVariant": "прЕльстить",
+    "options": [
+      "прЕльстить",
+      "прИльстить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?смыкаться",
+    "correctVariant": "прЕсмыкаться",
+    "options": [
+      "прЕсмыкаться",
+      "прИсмыкаться"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?дел (пристройка в церкви)",
+    "correctVariant": "прИдел",
+    "options": [
+      "прЕдел",
+      "прИдел"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?оритет",
+    "correctVariant": "прИоритет",
+    "options": [
+      "прЕоритет",
+      "прИоритет"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?цедент",
+    "correctVariant": "прЕцедент",
+    "options": [
+      "прЕцедент",
+      "прИцедент"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?есться",
+    "correctVariant": "прИесться",
+    "options": [
+      "прЕесться",
+      "прИесться"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?звание",
+    "correctVariant": "прИзвание",
+    "options": [
+      "прЕзвание",
+      "прИзвание"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?лат",
+    "correctVariant": "прЕлат",
+    "options": [
+      "прЕлат",
+      "прИлат"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?чина",
+    "correctVariant": "прИчина",
+    "options": [
+      "прЕчина",
+      "прИчина"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "непр?ложный (нерушимый)",
+    "correctVariant": "непрЕложный",
+    "options": [
+      "непрЕложный",
+      "непрИложный"
+    ],
+    "boldPosition": 4
+  },
+  {
+    "word": "пр?бор",
+    "correctVariant": "прИбор",
+    "options": [
+      "прЕбор",
+      "прИбор"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?бывать (приезжать)",
+    "correctVariant": "прИбывать",
+    "options": [
+      "прЕбывать",
+      "прИбывать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?пираться",
+    "correctVariant": "прЕпираться",
+    "options": [
+      "прЕпираться",
+      "прИпираться"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ставиться (умереть)",
+    "correctVariant": "прЕставиться",
+    "options": [
+      "прЕставиться",
+      "прИставиться"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?чуда",
+    "correctVariant": "прИчуда",
+    "options": [
+      "прЕчуда",
+      "прИчуда"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?зумпция",
+    "correctVariant": "прЕзумпция",
+    "options": [
+      "прЕзумпция",
+      "прИзумпция"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?пятствие",
+    "correctVariant": "прЕпятствие",
+    "options": [
+      "прЕпятствие",
+      "прИпятствие"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?поны",
+    "correctVariant": "прЕпоны",
+    "options": [
+      "прЕпоны",
+      "прИпоны"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?рия",
+    "correctVariant": "прЕрия",
+    "options": [
+      "прЕрия",
+      "прИрия"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?кословить",
+    "correctVariant": "прЕкословить",
+    "options": [
+      "прЕкословить",
+      "прИкословить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?годный",
+    "correctVariant": "прИгодный",
+    "options": [
+      "прЕгодный",
+      "прИгодный"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?гожий",
+    "correctVariant": "прИгожий",
+    "options": [
+      "прЕгожий",
+      "прИгожий"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?цел,примета",
+    "correctVariant": "прИцел,примета",
+    "options": [
+      "прЕцел,примета",
+      "прИцел,примета"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?уменьшать (немного) значение",
+    "correctVariant": "прИуменьшать",
+    "options": [
+      "прЕуменьшать",
+      "прИуменьшать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?лежный",
+    "correctVariant": "прИлежный",
+    "options": [
+      "прЕлежный",
+      "прИлежный"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?стойно",
+    "correctVariant": "прИстойно",
+    "options": [
+      "прЕстойно",
+      "прИстойно"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?вратный",
+    "correctVariant": "прЕвратный",
+    "options": [
+      "прЕвратный",
+      "прИвратный"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?зент",
+    "correctVariant": "прЕзент",
+    "options": [
+      "прЕзент",
+      "прИзент"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?чиндалы",
+    "correctVariant": "прИчиндалы",
+    "options": [
+      "прЕчиндалы",
+      "прИчиндалы"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?рода",
+    "correctVariant": "прИрода",
+    "options": [
+      "прЕрода",
+      "прИрода"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?вилегия",
+    "correctVariant": "прИвилегия",
+    "options": [
+      "прЕвилегия",
+      "прИвилегия"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?творить (закрыть)",
+    "correctVariant": "прИтворить",
+    "options": [
+      "прЕтворить",
+      "прИтворить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?грешения",
+    "correctVariant": "прЕгрешения",
+    "options": [
+      "прЕгрешения",
+      "прИгрешения"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ключение",
+    "correctVariant": "прИключение",
+    "options": [
+      "прЕключение",
+      "прИключение"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?судить",
+    "correctVariant": "прИсудить",
+    "options": [
+      "прЕсудить",
+      "прИсудить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?исподняя",
+    "correctVariant": "прЕисподняя",
+    "options": [
+      "прЕисподняя",
+      "прИисподняя"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?зреть (приютить)",
+    "correctVariant": "прИзреть",
+    "options": [
+      "прЕзреть",
+      "прИзреть"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?зидиум",
+    "correctVariant": "прЕзидиум",
+    "options": [
+      "прЕзидиум",
+      "прИзидиум"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?парировать",
+    "correctVariant": "прЕпарировать",
+    "options": [
+      "прЕпарировать",
+      "прИпарировать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?творить (воплотить)",
+    "correctVariant": "прЕтворить",
+    "options": [
+      "прЕтворить",
+      "прИтворить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?одолеть",
+    "correctVariant": "прЕодолеть",
+    "options": [
+      "прЕодолеть",
+      "прИодолеть"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?рогатива",
+    "correctVariant": "прЕрогатива",
+    "options": [
+      "прЕрогатива",
+      "прИрогатива"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?парат",
+    "correctVariant": "прЕпарат",
+    "options": [
+      "прЕпарат",
+      "прИпарат"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ческа",
+    "correctVariant": "прИческа",
+    "options": [
+      "прЕческа",
+      "прИческа"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ставить (поставить к чему-либо)",
+    "correctVariant": "прИставить",
+    "options": [
+      "прЕставить",
+      "прИставить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?емник (радио)",
+    "correctVariant": "прИемник",
+    "options": [
+      "прЕемник",
+      "прИемник"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?амбула",
+    "correctVariant": "прЕамбула",
+    "options": [
+      "прЕамбула",
+      "прИамбула"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?дать (суду)",
+    "correctVariant": "прЕдать",
+    "options": [
+      "прЕдать",
+      "прИдать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ходящий (временный)",
+    "correctVariant": "прЕходящий",
+    "options": [
+      "прЕходящий",
+      "прИходящий"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?проводить",
+    "correctVariant": "прЕпроводить",
+    "options": [
+      "прЕпроводить",
+      "прИпроводить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?верженец",
+    "correctVariant": "прИверженец",
+    "options": [
+      "прЕверженец",
+      "прИверженец"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?бывать (находиться)",
+    "correctVariant": "прЕбывать",
+    "options": [
+      "прЕбывать",
+      "прИбывать"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?скорбно",
+    "correctVariant": "прИскорбно",
+    "options": [
+      "прЕскорбно",
+      "прИскорбно"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?стол",
+    "correctVariant": "прЕстол",
+    "options": [
+      "прЕстол",
+      "прИстол"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ключения,прикорнуть",
+    "correctVariant": "прИключения,прикорнуть",
+    "options": [
+      "прЕключения,прикорнуть",
+      "прИключения,прикорнуть"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?пинания (знак)",
+    "correctVariant": "прЕпинания",
+    "options": [
+      "прЕпинания",
+      "прИпинания"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?зреть (пренебречь)",
+    "correctVariant": "прЕзреть",
+    "options": [
+      "прЕзреть",
+      "прИзреть"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?дел (граница)",
+    "correctVariant": "прЕдел",
+    "options": [
+      "прЕдел",
+      "прИдел"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?мат",
+    "correctVariant": "прИмат",
+    "options": [
+      "прЕмат",
+      "прИмат"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?стиж",
+    "correctVariant": "прЕстиж",
+    "options": [
+      "прЕстиж",
+      "прИстиж"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ходящий (являющийся)",
+    "correctVariant": "прИходящий",
+    "options": [
+      "прЕходящий",
+      "прИходящий"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ложить (положить вплотную)",
+    "correctVariant": "прИложить",
+    "options": [
+      "прЕложить",
+      "прИложить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?феранс",
+    "correctVariant": "прЕферанс",
+    "options": [
+      "прЕферанс",
+      "прИферанс"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?вратник (сторож)",
+    "correctVariant": "прИвратник",
+    "options": [
+      "прЕвратник",
+      "прИвратник"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?мьера",
+    "correctVariant": "прЕмьера",
+    "options": [
+      "прЕмьера",
+      "прИмьера"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?вентивный",
+    "correctVariant": "прЕвентивный",
+    "options": [
+      "прЕвентивный",
+      "прИвентивный"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?вередливый",
+    "correctVariant": "прИвередливый",
+    "options": [
+      "прЕвередливый",
+      "прИвередливый"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?каз",
+    "correctVariant": "прИказ",
+    "options": [
+      "прЕказ",
+      "прИказ"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?зидент",
+    "correctVariant": "прЕзидент",
+    "options": [
+      "прЕзидент",
+      "прИзидент"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?клонить (выразить уважение)",
+    "correctVariant": "прЕклонить",
+    "options": [
+      "прЕклонить",
+      "прИклонить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?мер",
+    "correctVariant": "прИмер",
+    "options": [
+      "прЕмер",
+      "прИмер"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?вратности (неприятности)",
+    "correctVariant": "прЕвратности",
+    "options": [
+      "прЕвратности",
+      "прИвратности"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ткновения (камень)",
+    "correctVariant": "прЕткновения",
+    "options": [
+      "прЕткновения",
+      "прИткновения"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?тензия",
+    "correctVariant": "прЕтензия",
+    "options": [
+      "прЕтензия",
+      "прИтензия"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?умножить",
+    "correctVariant": "прИумножить",
+    "options": [
+      "прЕумножить",
+      "прИумножить"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?емник (ученик)",
+    "correctVariant": "прЕемник",
+    "options": [
+      "прЕемник",
+      "прИемник"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?ватный",
+    "correctVariant": "прИватный",
+    "options": [
+      "прЕватный",
+      "прИватный"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?поднести",
+    "correctVariant": "прЕподнести",
+    "options": [
+      "прЕподнести",
+      "прИподнести"
+    ],
+    "boldPosition": 2
+  },
+  {
+    "word": "пр?уменьшать (очень) важность",
+    "correctVariant": "прЕуменьшать",
+    "options": [
+      "прЕуменьшать",
+      "прИуменьшать"
+    ],
+    "boldPosition": 2
+  }
+]

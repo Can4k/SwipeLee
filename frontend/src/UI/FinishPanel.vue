@@ -2,7 +2,7 @@
   <div class="finishPanel">
     <h2>Результат</h2>
     {{this.result}}
-    <button @click="again()" id="again">Еще раз</button>
+    <button @click="again()" id="again" :style="[$store.state.theme==='black' ? 'color: white' : 'color: black']">Еще раз</button>
   </div>
 </template>
 
@@ -51,7 +51,6 @@ export default {
 #again {
   background: none;
   border: 1px solid #42b983;
-  color: white;
   padding: 3px;
   margin-top: 5px;
   border-radius: 5px;

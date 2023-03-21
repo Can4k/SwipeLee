@@ -6,7 +6,7 @@
               @click="clearStat()">Отчистить статистику
       </button>
     </h1>
-    <div v-for="type in this.$store.state.modes" class="stat-block">
+    <div v-for="type in this.$store.state.modes" v-show="type && type.type !== 'learn'" class="stat-block">
       <h2>{{ type.name }}</h2>
       {{ fraction(type.enName) }} =
       <b>{{ percent(type.enName) }}</b>
@@ -164,7 +164,7 @@ button {
   }
   .problems-container {
     font-size: 22px;
-    height: 400px;
+    max-height: 400px;
   }
 }
 </style>

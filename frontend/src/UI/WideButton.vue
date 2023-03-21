@@ -55,5 +55,6 @@ export default {
 .tag-wrapper2 {
   display: flex;
   margin-left: 3px;
+  margin-left: 10px;
 }
 </style>

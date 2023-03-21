@@ -10,9 +10,17 @@
     </transition>
     <FinishPanel v-if="showFinishPanel" :en-name="this.name"/>
     <div class="playground">
-      <h3>
-        {{ this.example.word }}
-      </h3>
+      <div id="title">
+        <h3 id="start">
+          {{prefix}}
+        </h3>
+        <h3 id="bold">
+          {{bold}}
+        </h3>
+        <h3 id="finish">
+          {{suffix}}
+        </h3>
+      </div>
       <div class="buttons">
         <button
             :style="this.$store.state.theme === 'black'? {color: 'white', backgroundColor: '#003b3b'} : {color: 'black', backgroundColor: 'white'}"
@@ -118,6 +126,26 @@ export default {
       console.log(e)
     }
   },
+  computed: {
+    prefix() {
+      if (this.example.boldPosition) {
+        return this.example.word.slice(0, this.example.boldPosition);
+      }
+      return this.example.word;
+    },
+    bold() {
+      if (this.example.boldPosition) {
+        return this.example.word[this.example.boldPosition];
+      }
+      return "";
+    },
+    suffix() {
+      if (this.example.boldPosition) {
+        return this.example.word.slice(this.example.boldPosition + 1);
+      }
+      return "";
+    }
+  }
 }
 </script>
 
@@ -126,6 +154,18 @@ h3 {
   font-size: 25px;
   text-align: center;
   user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bold {
+  color: red;
 }
 
 .wrapper {
@@ -135,7 +175,6 @@ h3 {
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 20px);
 }
 
 button {
