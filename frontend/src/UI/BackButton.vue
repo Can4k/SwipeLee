@@ -1,25 +1,21 @@
 <template>
-  <div
-      :style="this.$store.state.theme === 'black'?
+  <router-link to="'/'">
+    <div
+        :style="this.$store.state.theme === 'black'?
       {color: 'white', backgroundColor: '#003b3b'}
       :
       {color: '#003b3b', backgroundColor: 'white'}"
-      @click="toMain()"
-      class="BackButton">
-    <div class="flexx">
-      Назад
+        class="BackButton">
+      <div class="flexx">
+        Назад
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: "BackButton",
-  methods: {
-    toMain() {
-      location.replace('/');
-    }
-  }
 }
 </script>
 

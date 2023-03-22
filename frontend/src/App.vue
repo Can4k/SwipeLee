@@ -57,4 +57,9 @@ export default {
 html {
   transition-duration: .1s;
 }
+* {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
 </style>

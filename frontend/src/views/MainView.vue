@@ -3,12 +3,16 @@
     <header>
       <h2 :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'">SwipeLee</h2>
       <div class="header-2">
-        <WideButton class="stat" @click="replace('stat')">
-          Статистика
-        </WideButton>
-        <WideButton class="stat" @click="replace('about')">
-          О сайте
-        </WideButton>
+        <router-link to="stat">
+          <WideButton class="stat">
+            Статистика
+          </WideButton>
+        </router-link>
+        <router-link to="/about">
+          <WideButton class="stat">
+            О сайте
+          </WideButton>
+        </router-link>
       </div>
       <div @click="closeBar" v-show="false" id="showed">
         Если ваше устройство <b>IPhone</b>, скройте панель инструментов.
@@ -17,14 +21,14 @@
         <div><b>Для того, чтобы скрыть этот текст просто нажмите на него.</b></div>
       </div>
       <section>
-        <WideButton
-            @click="replace(type.enName)"
-            v-for="type in $store.state.modes"
-            class="types"
-            :tags="type.tags"
-            :style="type.style"
-        >{{ type.name }}
-        </WideButton>
+        <router-link style="width: 100%" v-for="type in $store.state.modes" :to="`play/${type.enName}`">
+          <WideButton
+              class="types"
+              :tags="type.tags"
+              :style="type.style"
+          >{{ type.name}}
+          </WideButton>
+        </router-link>
       </section>
     </header>
   </div>
@@ -132,19 +136,23 @@ h3 {
   font-weight: 500;
   color: #4ece93;
 }
-@media screen and (min-width: 750px){
+
+@media screen and (min-width: 750px) {
   h2 {
     font-size: 50px;
   }
+
   .wrapper {
     max-width: 600px;
   }
+
   .stat {
     font-size: 25px;
     width: auto;
     height: auto;
     padding: 10px;
   }
+
   .types {
     font-size: 30px;
     height: auto;
