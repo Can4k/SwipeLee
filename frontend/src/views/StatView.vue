@@ -1,32 +1,29 @@
 <template>
-  <BackButton/>
   <div :style="this.$store.state.theme === 'black'? 'color: white' : 'color: black'" class="wrapper">
-    <h1>Статистика
-      <button :style="this.$store.state.theme === 'black'? 'border: 1px solid #42b983; color: white; background-color: #003b3b' : 'color: black'"
-              @click="clearStat()">Отчистить статистику
-      </button>
-    </h1>
-    <div v-for="type in this.$store.state.modes" v-show="type && type.type !== 'learn'" class="stat-block">
-      <h2>{{ type.name }}</h2>
-      {{ fraction(type.enName) }} =
-      <b>{{ percent(type.enName) }}</b>
-      <div>
-        <button :style="this.$store.state.theme === 'black'? 'border: 1px solid #42b983; color: white; background-color: #003b3b' : 'color: black'"
-                class="tag"
-                @click="clearStat(type.enName)">Отчистить статистику
-        </button>
+      <div id="stat-block">
+        <h1>Прогресс</h1>
+        <div class="flex-wrapper">
+          <div v-for="type in this.$store.state.modes" v-show="type && type.type !== 'learn'" class="stat-block">
+            <h2>{{ type.name }}</h2>
+            {{ fraction(type.enName) }} =
+            <b>{{ percent(type.enName) }}</b>
+<!--            <div>
+              <button :style="this.$store.state.theme === 'black'? 'border: 1px solid #42b983; color: white; background-color: #003b3b' : 'color: black'"
+                      class="tag"
+                      @click="clearStat(type.enName)">Очистить статистику
+              </button>
+            </div>-->
+          </div>
+        </div>
       </div>
-    </div>
-    <h1>Проблемные слова</h1>
-    <div class="problems-container">
-      <div class="container-inner">
-        <div v-for="word in hardWords">{{ word }}</div>
+      <div id="hard-words">
+        <h1>Проблемные слова</h1>
+        <div class="problems-container">
+          <div class="container-inner">
+            <div v-for="word in hardWords">{{ word }}</div>
+          </div>
+        </div>
       </div>
-<!--      <button :style="this.$store.state.theme === 'black'? 'border: 1px solid green; color: white; background-color: #003b3b' : 'color: black'"
-              class="tag tag2"
-              @click="clearStat(type.enName)">Отчистить статистику
-      </button>-->
-    </div>
   </div>
 </template>
 
@@ -71,12 +68,35 @@ export default {
 </script>
 
 <style scoped>
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.wrapper {
+  position: relative;
+  top: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#stat-block {
+  width: 50%;
+  margin: 0 10px;
+}
+
+#hard-words {
+  width: calc(50% - 40px);
+  margin: 0 10px;
+}
+
 h1 {
-  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   user-select: none;
+  margin-bottom: 5px;
 }
 
 h2 {
@@ -84,20 +104,12 @@ h2 {
 }
 
 .stat-block {
-  padding: 10px;
-  margin: 10px;
+  padding: 5px 8px 8px 8px;
+  margin: 0px 8px 10px 0px;
   border-radius: 10px;
   border: 1px solid #42b983;
   user-select: none;
-}
-
-.wrapper {
-  max-width: 400px;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  display: flex;
-  flex-direction: column;
+  word-break: break-all;
 }
 
 b {
@@ -119,11 +131,11 @@ button {
 
 .problems-container {
   position: relative;
-  height: 200px;
+  max-height: 200px;
   border: 1px solid #42b983;
   overflow-y: scroll;
   padding: 5px;
-  margin: 10px;
+  margin-bottom: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -138,33 +150,41 @@ button {
   font-size: 10px;
 }
 
-.tag2 {
-  width: 50%;
-  left: 50%;
-  transform: translate(-50%);
+@media screen and (max-width: 709px){
+  .wrapper {
+    flex-direction: column;
+  }
+  #stat-block {
+    width: calc(100% - 20px);
+  }
+  #hard-words {
+    width: calc(100% - 20px);
+  }
 }
+
 @media screen and (min-width: 750px){
   h1 {
-    font-size: 50px;
-  }
-  .wrapper {
-    max-width: 600px;
+    font-size: 35px;
   }
   h2 {
-    font-size: 35px;
+    font-size: 20px;
   }
   button {
     font-size: 25px;
   }
   .tag {
-    font-size: 20px;
+    font-size: 14px;
   }
   .stat-block {
     font-size: 18px;
   }
   .problems-container {
     font-size: 22px;
-    max-height: 400px;
+    max-height: 600px;
   }
+}
+
+.clear-all {
+  font-size: 30px;
 }
 </style>

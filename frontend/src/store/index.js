@@ -51,9 +51,7 @@ export default createStore({
                 type: "test"
             }
         ],
-
         theme: "",
-
         vowels: 'аяуюоеёэиы',
         stat: {
             "accent": {
@@ -77,6 +75,7 @@ export default createStore({
                 amountOk: 0,
             }
         },
+        tagsList: [],
     },
     getters: {
         percent: (state) => (title) => {
@@ -100,10 +99,9 @@ export default createStore({
     },
     mutations: {
         updateStat(state, data) {
-            let type = data[0], addAll = data[1], addOk = data[2];
+            const [type, addAll, addOk] = data;
             state.stat[type].amountAll += addAll;
             state.stat[type].amountOk += addOk;
-            localStorage['stat'] = JSON.stringify(state.stat);
         },
         clearStat(state) {
             for (let mode of state.modes) {
@@ -128,6 +126,9 @@ export default createStore({
             }
             document.querySelector('html').style.backgroundColor = (state.theme === 'black' ? "#003b3b" : "white");
             localStorage['theme'] = state.theme;
+        },
+        updateTagsList(state, value) {
+            state.tagsList = value;
         }
     },
     actions: {},

@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .WideButton {
-  height: 50px;
+  min-height: 50px;
   padding: 5px;
   border: 1px solid #42b983;
   color: black;
@@ -36,25 +36,30 @@ export default {
   border-radius: 10px;
 }
 .WideButton:hover {
-  background-color: #42b983;
+  background-color: rgba(66, 185, 131, 0.20);
 }
 .wrapper2 {
   word-break: break-all;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .tag {
   font-size: 10px;
   background-color: #42b983;
   border-radius: 6px;
-  padding: 3px;
-  margin: 3px;
+  padding: 2px 3px;
+  margin: 2px 3px;
+  margin-bottom: 0;
 }
 .tag-wrapper2 {
+  margin-top: 5px;
   display: flex;
-  margin-left: 3px;
   margin-left: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
 }
 </style>

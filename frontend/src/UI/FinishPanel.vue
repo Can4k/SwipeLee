@@ -38,15 +38,13 @@ export default {
 
 <style scoped>
 .finishPanel {
-  position: relative;
   width: 300px;
-  left: 50%;
-  transform: translate(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
   padding: 20px;
+  font-size: 28px;
 }
 #again {
   background: none;
@@ -55,5 +53,14 @@ export default {
   margin-top: 5px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 17px;
+}
+@media screen and (max-width: 500px) {
+  .finishPanel {
+    font-size: 20px;
+  }
+  #again {
+    font-size: 14px;
+  }
 }
 </style>

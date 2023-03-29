@@ -1,10 +1,8 @@
 <template>
-  <WideButton
-      :style="this.$store.state.theme === 'black'?
-      {color: 'white', backgroundColor: '#003b3b'}
-      :
-      {color: '#003b3b', backgroundColor: 'white'}"
-      @click="this.$store.commit('changeTheme')" class="theme">Тема</WideButton>
+  <div @click="this.$store.commit('changeTheme')" class="theme">
+    <img v-show="this.$store.state.theme === 'black'" src="@/pictures/sun.svg">
+    <img v-show="this.$store.state.theme === 'white'" src="@/pictures/moon.svg">
+  </div>
 </template>
 
 <script>
@@ -19,15 +17,13 @@ export default {
 <style scoped>
 .theme {
   z-index: 5;
-  position: fixed;
-  margin: 0 !important;
-  font-size: 12px;
   border-radius: 100%;
-  padding: 0 5px;
   height: 35px;
-  right: 10px;
-  top: 10px;
   user-select: none;
-  background: white;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

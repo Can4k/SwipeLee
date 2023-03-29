@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainView from "@/views/MainView.vue";
 import StatView from "@/views/StatView.vue";
 import PlayView from "@/views/PlayView.vue";
 import aboutView from "@/views/AboutView.vue";
+import TrainView from "@/views/TrainView.vue";
+import loginView from "@/views/LoginView.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'main',
-    component: MainView
+    path: '/play',
+    name: 'playground',
+    component: TrainView
   },
   {
     path: '/stat',
@@ -26,8 +27,13 @@ const routes = [
     component: aboutView
   },
   {
+    path: '/login',
+    name: 'login',
+    component: loginView
+  },
+  {
     path: "/:catchAll(.*)",
-    redirect: '/',
+    redirect: '/play',
   },
 ]
 
